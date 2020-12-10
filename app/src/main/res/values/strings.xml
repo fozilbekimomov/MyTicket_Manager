@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">MyStiker M</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiZm96aWxiZWstaW1vbW92IiwiYSI6ImNraWphN2ZpcDAwcmkzM3BlYmFqcmlvOTkifQ.boqjh23y_xp0_ShSKLz4bg</string>
+</resources>

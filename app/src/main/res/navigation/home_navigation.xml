@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="uz.fozilbekimomov.mystiker_manager.ui.home.HomeFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_userFragment"
+            app:destination="@id/userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userFragment"
+        android:name="uz.fozilbekimomov.mystiker_manager.ui.userData.UserFragment"
+        android:label="UserFragment"
+        tools:layout="@layout/fragment_user">
+        <argument
+            android:name="userName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_userFragment_to_mapFragment"
+            app:destination="@id/mapFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="uz.fozilbekimomov.mystiker_manager.ui.map.MapFragment"
+        tools:layout="@layout/fragment_map"
+        android:label="MapFragment" >
+        <argument
+            android:name="location"
+            app:argType="uz.fozilbekimomov.mystiker_manager.core.models.LocationModelJ" />
+    </fragment>
+</navigation>

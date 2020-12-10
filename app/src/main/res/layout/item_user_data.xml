@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="6dp"
+    android:layout_marginTop="3dp"
+    android:layout_marginRight="6dp"
+    android:layout_marginBottom="3dp"
+    app:cardCornerRadius="6dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="16dp">
+
+        <com.elyeproj.loaderviewlibrary.LoaderImageView
+            android:id="@+id/imageSticker"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="2:3"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:custom_color="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageSticker" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/userNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:custom_color="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userName" />
+
+        <com.elyeproj.loaderviewlibrary.LoaderTextView
+            android:id="@+id/userAdded"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="2dp"
+            android:textColor="#0067B8"
+            android:textSize="12sp"
+            app:custom_color="@android:color/darker_gray"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/userNumber" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
