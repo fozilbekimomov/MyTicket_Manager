@@ -42,7 +42,7 @@ abstract class UserDB : RoomDatabase() {
                         INSTANCE = Room.inMemoryDatabaseBuilder(
                            application,
                             UserDB::class.java
-                        ).build()
+                        ).allowMainThreadQueries().build()
                     }
                 }
             }

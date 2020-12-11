@@ -66,6 +66,11 @@ class HomeFragment : Fragment(), ItemClickListener {
 
         homeViewModel.usersName.observe(viewLifecycleOwner, {
             adapter.setData(it)
+            if (it.size > 0) {
+                binding.homeText.visibility=View.GONE
+            }else{
+                binding.homeText.visibility=View.VISIBLE
+            }
         })
     }
 

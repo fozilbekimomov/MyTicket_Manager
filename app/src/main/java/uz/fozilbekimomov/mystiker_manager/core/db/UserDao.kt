@@ -4,8 +4,6 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import uz.fozilbekimomov.mystiker_manager.core.models.LocationModelJ
-import uz.fozilbekimomov.mystiker_manager.core.models.UserData
 import uz.fozilbekimomov.mystiker_manager.core.models.UserDataJ
 
 
@@ -35,4 +33,7 @@ interface UserDao {
 
     @Query("SELECT * FROM user_data WHERE userName=:userName")
     fun getAllByName(userName: String): List<UserDataJ>
+
+    @Query("SELECT COUNT(id) FROM user_data WHERE userName =:userName")
+    fun getCount(userName: String): Int
 }

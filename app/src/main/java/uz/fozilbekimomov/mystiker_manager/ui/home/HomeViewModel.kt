@@ -12,10 +12,10 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import uz.fozilbekimomov.mystiker_manager.core.db.UserDB
 import uz.fozilbekimomov.mystiker_manager.core.db.UserDao
-import uz.fozilbekimomov.mystiker_manager.core.models.LocationModelJ
-import uz.fozilbekimomov.mystiker_manager.core.models.UserData
+import uz.fozilbekimomov.mystiker_manager.core.models.UserDataCount
 import uz.fozilbekimomov.mystiker_manager.core.models.UserDataJ
 import uz.fozilbekimomov.mystiker_manager.core.utils.DATA_KEY
+import uz.fozilbekimomov.mystiker_manager.core.utils.DataMaker
 import uz.fozilbekimomov.mystiker_manager.core.utils.TAG
 
 
@@ -55,7 +55,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                             Log.d(TAG, document.id + " => " + document.data)
 
                             val userData = document.toObject(UserDataJ::class.java)
-                            userData.id=document.id
+                            userData.id = document.id
                             data.add(
                                 userData
                             )
@@ -79,18 +79,31 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val _usersName = MutableLiveData<HashSet<String>>()
     val usersName: LiveData<HashSet<String>> get() = _usersName
     fun loadSetData(data: ArrayList<UserDataJ>) {
+
+//        var userDataCount: ArrayList<UserDataCount>? = null
+
+//        val dataMaker=DataMaker()
+
         viewModelScope.launch {
             withContext(Dispatchers.Main) {
 
                 val set = HashSet<String>()
 
                 for (d in data) {
-                    d.userName?.let { set.add(it) }
+
+                    set.add(d.userName)
                 }
                 _usersName.postValue(set)
 
             }
         }
+    }
+
+    fun getUserDataCount(userName: String): Int {
+        userDao?.getCount(userName)?.let {
+            return it
+        }
+        return 0
     }
 
 }
